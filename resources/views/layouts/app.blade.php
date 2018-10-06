@@ -12,18 +12,31 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 </head>
+
 <body>
     <div id="app">
         <div class="wrapper">
+            @auth()
             @include('layouts.sidebar')
+            @endauth
             <div id="content">
                 @include('layouts.navbar')
-                @section('content')
+                <div class="row">
+                    @yield('content')
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<script src="{{asset('js/app.js')}}"></script>
-
+    <script src="{{asset('js/app.js')}}"></script>
+    @if(Session::has('success'))
+    <script>
+        swal({
+            type: "success",
+            title: "{{Session::get('success')}}"
+        })
+    </script>
+    @endif
+    @yield('scripts')
 </body>
+
 </html>

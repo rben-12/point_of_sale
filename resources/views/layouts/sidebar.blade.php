@@ -23,16 +23,13 @@
 			<a href="#">About</a>
 		</li>
 		<li>
-			<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-			<ul class="collapse list-unstyled" id="pageSubmenu">
+			<a href="#productsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
+			<ul class="collapse list-unstyled" id="productsSubmenu">
 				<li>
-					<a href="#">Page 1</a>
+					<a href="{{route('products.index')}}">Todos</a>
 				</li>
 				<li>
-					<a href="#">Page 2</a>
-				</li>
-				<li>
-					<a href="#">Page 3</a>
+					<a href="{{route('products.create')}}">Registrar</a>
 				</li>
 			</ul>
 		</li>

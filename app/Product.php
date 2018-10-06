@@ -3,32 +3,33 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    protected $table = 'products';
+    use SoftDeletes;
+    
     protected $fillable = [
-        'category_id',
-        'descripcion',
-        'modelo',
-        'serie',
-        'medida',
-        'precio'
+        'category_id', 'product', 'model', 'serie', 'measure', 'price'
+    ];
+
+    protected $dates = [
+        'deleted_at'
     ];
 
     public function category()
     {
-        return $this->belongsto(Category::class, 'category_id', 'id');
+        return $this->belongsto(Category::class);
     }
 
     public function parts()
     {
-        return $this->hasMany(Part::class, 'product_id', 'id');
+        return $this->hasMany(Part::class);
     }
 
     public function manuals()
     {
-        return $this->hasMany(Manual::class, 'product_id', 'id');
+        return $this->hasMany(Manual::class);
     }
     
     public function sales()

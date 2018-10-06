@@ -12,18 +12,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Page</a>
+
+                @auth()
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i> {{Auth::user()->name}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link logout" href="#">Salir</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('register')}}">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
-                </li>
+
+                @endauth
             </ul>
         </div>
     </div>

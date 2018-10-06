@@ -12,11 +12,14 @@
 @import 'sidebar';
 
 //FontAwesome
-//FontAwesome
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
+
+@import '~select2/src/scss/core';
+
+@import '~sweetalert2/dist/sweetalert2.css';
 
 .navbar-laravel {
   background-color: #fff;
