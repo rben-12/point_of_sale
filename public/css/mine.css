@@ -1,0 +1,10 @@
+body {
+    background: #176662; 
+    background: -webkit-linear-gradient(right, #5298b815, rgba(111, 194, 148, 0.055));  
+    background: -moz-linear-gradient(right, #5298b815, rgba(111, 194, 148, 0.055)); 
+    background: -o-linear-gradient(right,  #5298b815, rgba(111, 194, 148, 0.055));  
+    background: linear-gradient(to left,  #5298b815, rgba(111, 194, 148, 0.158));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: capitalize;      
+  }
