@@ -8,8 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Sidebar
+// Themes
 @import 'sidebar';
+@import 'navbar';
 
 //FontAwesome
 @import '~@fortawesome/fontawesome-free/scss/brands';
@@ -24,4 +25,12 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.bg-theme-green{
+  background: $themeGreen;
+}
+
+.bg-theme-blue{
+  background: $themeBlue;
 }
