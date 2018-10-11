@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resources([
-    'products' => 'ProductController'
+    'products' => 'ProductController',
+    'manuals' => 'ManualController'
 ]);
 Auth::routes();
 

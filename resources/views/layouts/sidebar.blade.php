@@ -1,6 +1,7 @@
 <nav id="sidebar">
 	<div class="sidebar-header">
-		<h3>Bootstrap Sidebar</h3>
+		<img src="{{asset('img/YAMAHA.png')}}" width="180" height="40" alt="">
+		<!-- <h3>Bootstrap Sidebar</h3> -->
 	</div>
 
 	<ul class="list-unstyled components">
@@ -20,7 +21,15 @@
 			</ul>
 		</li>
 		<li>
-			<a href="#">About</a>
+			<a href="#manualsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">manuales</a>
+			<ul class="collapse list-unstyled" id="manualsSubmenu">
+				<li>
+					<a href="{{route('manuals.index')}}">Todos</a>
+				</li>
+				<li>
+					<a href="{{route('manuals.create')}}">Registrar</a>
+				</li>
+			</ul>
 		</li>
 		<li>
 			<a href="#productsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>

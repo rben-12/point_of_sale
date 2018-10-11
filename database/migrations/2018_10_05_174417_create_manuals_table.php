@@ -15,8 +15,8 @@ class CreateManualsTable extends Migration
     {
         Schema::create('manuals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('modelo');
-            $table->string('año');
+            $table->string('model');
+            $table->string('year');
             $table->integer('product_id')->unsigned();
             $table->string('file');
             $table->timestamps();

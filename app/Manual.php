@@ -8,8 +8,8 @@ class Manual extends Model
 {
     protected $table = 'manuals';
     protected $fillable = [
-        'modelo',
-        'año',
+        'model',
+        'year',
         'product_id',
         'file'
     ];
