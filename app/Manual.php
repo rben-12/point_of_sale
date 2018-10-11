@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manual extends Model
 {
-    protected $table = 'manuals';
     protected $fillable = [
         'model',
         'year',
@@ -16,6 +15,6 @@ class Manual extends Model
 
     public function product()
     {
-        return $this->hasMany(Manual::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class);
     }
 }

@@ -2,17 +2,17 @@
 @section('content')
 <div class="col-md-12">
     <div class="card">
-        <form action="{{route('manuals.store')}}" method="post">
+        <form action="{{route('manuals.store')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="card-body">
                 <h4 class="card-title">Manual</h4>
                 <div class="form-group">
                     <label for="">Modelo</label>
-                    <input type="text" name="model" class="form-control">
+                    <input type="text" name="model" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Año</label>
-                    <input type="text" name="year" class="form-control">
+                    <input type="number" name="year" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Producto</label>
@@ -23,8 +23,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">file</label>
-                    <input type="text" name="file" class="form-control">
+                    <label for="">Manual</label>
+                    <input type="file" name="_file" class="form-control-file" required>
                 </div>
             </div>
             <div class="card-footer">

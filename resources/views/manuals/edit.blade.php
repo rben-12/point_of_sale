@@ -4,16 +4,16 @@
     <h1 class="title">Manual</h1>
 </div>
 <div class="col-md-12">
-    <form action="{{route('manuals.update', $manual)}}" method="post">
+    <form action="{{route('manuals.update', $manual)}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         {{method_field('PUT')}}
         <div class="form-group">
             <label for="">Modelo</label>
-            <input type="text" name="model" class="form-control" value="{{$manual->model}}">
+            <input type="text" name="model" class="form-control" value="{{$manual->model}}" required>
         </div>
         <div class="form-group">
             <label for="">año</label>
-            <input type="text" name="year" class="form-control" value="{{$manual->year}}">
+            <input type="text" name="year" class="form-control" value="{{$manual->year}}" required>
         </div>
         <div class="form-group">
             <label for="">Producto</label>
@@ -24,8 +24,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="">archivo</label>
-            <input type="text" name="file" class="form-control" value="{{$manual->file}}">
+            <label for="">Manual</label>
+            <input type="file" name="_file" class="form-control-file">
         </div>
         <div class="form-group">
             <button type="reset" class="btn btn-dark">Cancelar</button>

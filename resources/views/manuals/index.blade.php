@@ -20,7 +20,7 @@
                 <td class="py-1">{{$manual->model}}</td>
                 <td class="py-1">{{$manual->year}}</td>
                 <td class="py-1">{{$manual->product->product}}</td>
-                <td class="py-1">{{$manual->file}}</td>
+                <td class="py-1"><a href="{{asset($manual->file)}}" target="_blank">{{$manual->file}}</a></td>
                 <td class="py-1 text-center">
                     <a href="{{route('manuals.edit', $manual)}}" class="btn btn-sm btn-dark"><i class="fas fa-sync"></i></a>
                     <a href="{{route('manuals.destroy', $manual)}}" class="btn btn-sm btn-danger delete"><i class="fas fa-trash"></i></a> 

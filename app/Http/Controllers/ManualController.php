@@ -45,7 +45,12 @@ class ManualController extends Controller
      */
     public function store(Request $request)
     {
-        Manual::create($request->all());
+        Manual::create([
+            'year' => $request->year,
+            'model' => $request->model,
+            'product_id' => $request->product_id,
+            'file' => $request->file('_file')->store('files/manuals')
+        ]);
         Session::flash('success', 'Manual guardado');
         return redirect()->back();
     }
@@ -56,7 +61,7 @@ class ManualController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Manual $manual)
     {
         //
     }
@@ -85,6 +90,11 @@ class ManualController extends Controller
     public function update(Request $request, Manual $manual)
     {
         $manual->update($request->all());
+
+        if($request->has('_file')) $manual->update([
+            'file' => $request->file('_file')->store('files/manuals')
+        ]);
+        
         Session::flash('success', 'Manual actualizado');
         return redirect()->back();
     }
