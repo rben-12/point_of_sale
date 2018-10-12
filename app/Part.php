@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Part extends Model
 {
-    protected $table = 'parts';
+    use SoftDeletes;
+
     protected $fillable = [
         'product_id',
         'codigo',
@@ -14,8 +16,12 @@ class Part extends Model
         'stock'
     ];
 
+    protected $dates = [
+        'deleted_at'
+    ];
+
     public function product()
     {
-        return $this->belongsto(Product::class, 'product_id', 'id');
+        return $this->belongsToMany(Product::class);
     }
 }

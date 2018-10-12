@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Part;
+use App\Product;
 use App\Category;
 
-class ProductController extends Controller
+class PartController extends Controller
 {
     public function __construct()
     {
@@ -20,8 +21,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index')->with([
-            'products' => Product::withTrashed()->paginate(25)
+        return view('parts.index')->with([
+            'parts' => Part::withTrashed()->paginate(25)
         ]);
     }
 
@@ -32,7 +33,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create')->with([
+        return view('parts.create')->with([
+            'products' => Product::all(),
             'categories' => Category::all()
         ]);
     }
@@ -45,21 +47,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
-        Part::create([
-
-        ]);
-        Session::flash('success', 'Producto && Parte guardado');
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
     }
@@ -67,41 +64,34 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        return view('products.edit')->with([
-            'product' => $product,
-            'categories' => Category::all()
-        ]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        $product->update($request->all());
-        Session::flash('success', 'Producto actualizado');
-        return redirect()->back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product->delete();
-        Session::flash('success', 'Producto eliminado');
-        return redirect()->back();
+        //
     }
 }

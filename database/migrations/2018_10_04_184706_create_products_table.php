@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('product');
             $table->string('model')->nullable();
-            $table->string('serie');
+            //$table->string('serie');
             $table->string('measure');
             $table->string('price');
             $table->softDeletes();

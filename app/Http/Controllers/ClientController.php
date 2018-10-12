@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Category;
+use App\Client;
 
-class ProductController extends Controller
+class ClientController extends Controller
 {
     public function __construct()
     {
@@ -20,8 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index')->with([
-            'products' => Product::withTrashed()->paginate(25)
+        return view('clients.index')->with([
+            'clients' => Client::paginate(25)
         ]);
     }
 
@@ -32,9 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create')->with([
-            'categories' => Category::all()
-        ]);
+        return view('clients.create');
     }
 
     /**
@@ -45,21 +42,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
-        Part::create([
-
-        ]);
-        Session::flash('success', 'Producto && Parte guardado');
+        Client::create($request->all());
+        Session::flash('success', 'Cliente guardado');
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
     }
@@ -67,14 +61,13 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Client $client)
     {
-        return view('products.edit')->with([
-            'product' => $product,
-            'categories' => Category::all()
+        return view('clients.edit')->with([
+            'client' => $client
         ]);
     }
 
@@ -82,26 +75,24 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Client $client)
     {
-        $product->update($request->all());
-        Session::flash('success', 'Producto actualizado');
+        $client->update($request->all());
+        Session::flash('success', 'Cliente actualizado');
         return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product->delete();
-        Session::flash('success', 'Producto eliminado');
-        return redirect()->back();
+        //
     }
 }

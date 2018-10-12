@@ -15,10 +15,12 @@ class CreatePartsTable extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
+            //$table->integer('product_id')->unsigned();
             $table->string('codigo')->unique();
             $table->string('caballaje');
-            $table->string('stock');
+            //$table->string('stock');
+            //$table->softDeletes();
+
             $table->timestamps();
 
         $table->foreign('product_id')->references('id')->on('products');

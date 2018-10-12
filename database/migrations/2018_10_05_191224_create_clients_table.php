@@ -18,9 +18,9 @@ class CreateClientsTable extends Migration
             $table->string('n_client');
             $table->string('name');
             $table->string('lastname');
-            $table->string('dependence');
+            $table->string('dependence')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->timestamps();
         });
     }

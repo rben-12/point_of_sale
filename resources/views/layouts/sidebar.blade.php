@@ -1,6 +1,6 @@
 <nav id="sidebar">
 	<div class="sidebar-header">
-		<img src="{{asset('img/YAMAHA.png')}}" width="180" height="40" alt="">
+		<img src="{{asset('img/YAMAHA.png')}}" width="150" height="35" style="margin-left: 25px" alt="">
 		<!-- <h3>Bootstrap Sidebar</h3> -->
 	</div>
 
@@ -21,7 +21,18 @@
 			</ul>
 		</li>
 		<li>
-			<a href="#manualsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">manuales</a>
+			<a href="#clientsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clientes</a>
+			<ul class="collapse list-unstyled" id="clientsSubmenu">
+				<li>
+					<a href="{{route('clients.index')}}">Todos</a>
+				</li>
+				<li>
+					<a href="{{route('clients.create')}}">Registrar</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#manualsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manuales</a>
 			<ul class="collapse list-unstyled" id="manualsSubmenu">
 				<li>
 					<a href="{{route('manuals.index')}}">Todos</a>

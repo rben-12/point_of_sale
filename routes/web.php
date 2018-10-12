@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 Route::resources([
     'products' => 'ProductController',
-    'manuals' => 'ManualController'
+    'manuals' => 'ManualController',
+    'parts' => 'PartController',
+    'clients' => 'ClientController'
 ]);
 Auth::routes();
 
